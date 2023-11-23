@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Movies from './components/Movies';
 import Home from './components/Home';
+import MoviesList from './components/movies/MoviesList';
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="movies" element={<Movies />} />
+          <Route path="movies" element={<MoviesList/>} />
         </Route>
       </Routes>
 
