@@ -5,14 +5,14 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import R from '../../assets/images/R.jpg';
+import cinema1 from '../../assetes/images/cinema1.jpg';
 
 export default function MovieCard() {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 245 }}>
       <CardMedia
-        sx={{ height: 140 }}
-        image={R}
+        sx={{ height: 440 }}
+        image={cinema1}
         title="green iguana"
       />
       <CardContent>
@@ -31,3 +31,4 @@ export default function MovieCard() {
     </Card>
   );
 }
+
