@@ -12,7 +12,7 @@ export default function MovieCard({title,year,imageUrl,description}:IMovie) {
   return (
     <Card sx={{ height:'100%' }}>
       <CardMedia
-        sx={{ height: 340 }}
+        sx={{ height: 640 }}
         // image={cinema1}
         image={imageUrl}
         title="green iguana"
