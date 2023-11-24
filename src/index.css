@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.Login{
+  width: 60%;
+  margin: auto;
+}
+
+.Login form{
+  display: flex;
+  flex-direction: column;
+  gap:20px;
+}

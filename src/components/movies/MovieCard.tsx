@@ -6,7 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import cinema1 from '../../assetes/images/cinema1.jpg';
-import { IMovie } from './movie';
+import { IMovie } from '../../models/movie';
 
 export default function MovieCard({title,year,imageUrl,description}:IMovie) {
   return (

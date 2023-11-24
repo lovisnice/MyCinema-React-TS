@@ -2,7 +2,7 @@ import { useState } from "react";
 import MovieCard from "./MovieCard";
 import Grid from '@mui/material/Grid';
 import { useEffect } from 'react';
-import { IMovie } from "./movie";
+import { IMovie } from "../../models/movie";
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
 //9ab7a18b

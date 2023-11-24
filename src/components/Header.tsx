@@ -18,7 +18,7 @@ const pages = [
     { itemName: 'Home', path: '/' },
     { itemName: 'Movies', path: 'movies' }
 ];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = [ { itemName: 'Login', path: '/login' },];
 
 function Header() {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -153,8 +153,8 @@ function Header() {
                             onClose={handleCloseUserMenu}
                         >
                             {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Typography textAlign="center">{setting}</Typography>
+                                <MenuItem key={setting.itemName} onClick={handleCloseUserMenu}>
+                                    <Typography textAlign="center"><Link to={setting.path}>{setting.itemName}</Link></Typography>
                                 </MenuItem>
                             ))}
                         </Menu>
