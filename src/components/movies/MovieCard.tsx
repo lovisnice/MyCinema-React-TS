@@ -6,22 +6,23 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import cinema1 from '../../assetes/images/cinema1.jpg';
+import { IMovie } from './movie';
 
-export default function MovieCard() {
+export default function MovieCard({title,year,imageUrl,description}:IMovie) {
   return (
-    <Card sx={{ maxWidth: 245 }}>
+    <Card sx={{ height:'100%' }}>
       <CardMedia
-        sx={{ height: 440 }}
-        image={cinema1}
+        sx={{ height: 340 }}
+        // image={cinema1}
+        image={imageUrl}
         title="green iguana"
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Lizard
+          {title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          Year:{year}
         </Typography>
       </CardContent>
       <CardActions>
