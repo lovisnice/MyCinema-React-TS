@@ -9,7 +9,8 @@ import Stack from '@mui/material/Stack';
 
 // const api: string = 'https://www.omdbapi.com/?i=tt3896198&apikey=9ab7a18b';
 // const api: string ='https://www.omdbapi.com/?s=car&apikey=9ab7a18b';
-const api: string = 'https://cinema-api-pv114.azurewebsites.net/api/movies';
+// const api: string = 'https://cinema-api-pv114.azurewebsites.net/api/movies';
+const api: string = 'https://web-api-azure114.azurewebsites.net/api/movies';
 const MoviesList = () => {
     const [movies, setMovies] = useState<IMovie[] | undefined>();
     let placeholder = [];
