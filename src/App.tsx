@@ -6,6 +6,7 @@ import Movies from './components/Movies';
 import Home from './components/Home';
 import MoviesList from './components/movies/MoviesList';
 import Login from './components/accounts/Login';
+import AddMovie from './components/movies/AddMovie';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="movies" element={<MoviesList/>} />
           <Route path="login" element={<Login/>} />
+          <Route path="addmovie" element={<AddMovie/>}/>
         </Route>
         
       </Routes>

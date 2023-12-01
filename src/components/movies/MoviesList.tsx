@@ -10,7 +10,7 @@ import Stack from '@mui/material/Stack';
 // const api: string = 'https://www.omdbapi.com/?i=tt3896198&apikey=9ab7a18b';
 // const api: string ='https://www.omdbapi.com/?s=car&apikey=9ab7a18b';
 // const api: string = 'https://cinema-api-pv114.azurewebsites.net/api/movies';
-const api: string = 'https://web-api-azure114.azurewebsites.net/api/movies';
+const api: string = 'https://cinema-api-1.azurewebsites.net/api/movies';
 const MoviesList = () => {
     const [movies, setMovies] = useState<IMovie[] | undefined>();
     let placeholder = [];
@@ -33,19 +33,9 @@ const MoviesList = () => {
 
     useEffect(() => {
         fetch(api).then(res => res.json()).then(data => {
-            // console.log(data);
-            // console.log(data.Search);
             setMovies(data);
             console.log(movies);
         }).catch(err => console.error(err));
-        //    const dataFetch=async ()=>{
-        //     const res = await fetch(api);
-        //         if (res.status==200){
-        //             const data= await res.json();
-        //             setMovies(data);
-        //         }   
-        //     }
-        //     dataFetch().catch(console.error);
     }, []);
 
     return (
@@ -62,7 +52,7 @@ const MoviesList = () => {
                 }
 
             </Grid>
-
+          
         </>
     );
 }
