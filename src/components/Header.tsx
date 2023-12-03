@@ -18,11 +18,8 @@ import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
 import {InputAdornment} from "@mui/material";
-import { Route } from "react-router-dom";
-import { useDispatch, useSelector } from 'react-redux';
-import { initialState,setKeyword } from "../reducer/searchSlice";
-import MoviesList from "./movies/MoviesList";
-
+import { useDispatch } from 'react-redux';
+import { setKeyword } from "../reducer/searchSlice";
 
 
 const pages = [
@@ -33,19 +30,22 @@ const pages = [
 const settings = [ { itemName: 'Login', path: '/login' },];
 
 
-
 function Header() {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
     const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
+
     const dispatch = useDispatch();
-    const keyword = useSelector((state:typeof initialState) => state.keyword);
-    //console.log(keyword);
-  const handleInputChange = (event:ChangeEvent<HTMLInputElement>) => {
-    // console.log(event.target.value);
-    dispatch(setKeyword(event.target.value));
     
-  };
+    const [searchTerm, setSearchTerm] = useState(""); 
+
+        const handleInputChange = (event:ChangeEvent<HTMLInputElement>) => {
+            //console.log(event.target.value);
+        setSearchTerm(event.target.value)
+        }
+        const handleButtonClick=() =>{
+            dispatch(setKeyword(searchTerm))
+        }
 
 
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -159,13 +159,12 @@ function Header() {
                         id="search"
                         type="search"
                         label="Search"
-                        value={keyword}
                         onChange={handleInputChange
                         }
                         sx={{ width: 600 }}
                         InputProps={{
                         endAdornment: (
-                            <Button onClick={()=>{<MoviesList/>}}>
+                            <Button  onClick={()=>{handleButtonClick()}} >
                                 <InputAdornment position="end">
                                 <SearchIcon />
                                 </InputAdornment>

@@ -7,6 +7,7 @@ import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
 import { useSelector, useDispatch } from 'react-redux';
 import { initialState } from "../../reducer/searchSlice";
+import { useAppSelector } from "../../reducer/hooks";
 ////9ab7a18b
 
 // const api: string = 'https://www.omdbapi.com/?i=tt3896198&apikey=9ab7a18b';
@@ -22,7 +23,7 @@ const MoviesList = () => {
     const [movies, setMovies] = useState<IMovieSearch[] | undefined>();
     const [moviesSearch, setMoviesSearch] = useState<IMovieSearch[] | undefined>();
     //const searchapi: string = `https://www.omdbapi.com/?s=${keyword}&apikey=50bcb9c1`;
-    const keyword = useSelector((state:typeof initialState) => state.keyword);
+    //let keyword = useSelector((state:typeof initialState) => state.keyword);
     //console.log(keyword);
     let placeholder = [];
 
@@ -49,15 +50,14 @@ const MoviesList = () => {
     //     }).catch(err => console.error(err));
     //  }, []);
 
-    
-
-        useEffect(() => {
+    const keyword = useAppSelector((state) => state.search.keyword);
+    useEffect(() => {
         const searchapi = `https://www.omdbapi.com/?s=${keyword}&apikey=50bcb9c1`;
         fetch(searchapi).then(res => res.json()).then(data => {
             setMoviesSearch(data["Search"]);
-            //console.log(keyword);
+            console.log(keyword);
         }).catch(err => console.error(err));
-  }, []);
+  }, [keyword]);
 
     return (
         <>
