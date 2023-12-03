@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, Router, Routes } from "react-router-dom";
 import * as React from 'react';
+import { ChangeEvent } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,6 +14,16 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { useState } from "react";
+import SearchIcon from "@mui/icons-material/Search";
+import TextField from "@mui/material/TextField";
+import {InputAdornment} from "@mui/material";
+import { Route } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { initialState,setKeyword } from "../reducer/searchSlice";
+import MoviesList from "./movies/MoviesList";
+
+
 
 const pages = [
     { itemName: 'Home', path: '/' },
@@ -21,9 +32,21 @@ const pages = [
 ];
 const settings = [ { itemName: 'Login', path: '/login' },];
 
+
+
 function Header() {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
     const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+
+    const dispatch = useDispatch();
+    const keyword = useSelector((state:typeof initialState) => state.keyword);
+    //console.log(keyword);
+  const handleInputChange = (event:ChangeEvent<HTMLInputElement>) => {
+    // console.log(event.target.value);
+    dispatch(setKeyword(event.target.value));
+    
+  };
+
 
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorElNav(event.currentTarget);
@@ -41,10 +64,10 @@ function Header() {
     };
 
     return (
+        
         <AppBar position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                   
                         <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
                         <Typography
                             variant="h6"
@@ -130,6 +153,26 @@ function Header() {
                             </Button>
                         ))}
                     </Box>
+                    
+                    
+                    <TextField
+                        id="search"
+                        type="search"
+                        label="Search"
+                        value={keyword}
+                        onChange={handleInputChange
+                        }
+                        sx={{ width: 600 }}
+                        InputProps={{
+                        endAdornment: (
+                            <Button onClick={()=>{<MoviesList/>}}>
+                                <InputAdornment position="end">
+                                <SearchIcon />
+                                </InputAdornment>
+                            </Button>
+                        ),
+                        }}
+                    />
 
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">

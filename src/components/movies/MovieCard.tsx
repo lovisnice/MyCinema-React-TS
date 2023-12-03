@@ -5,23 +5,23 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { IMovie } from '../../models/movie';
+import { IMovie, IMovieSearch } from '../../models/movie';
 
-export default function MovieCard({title,year,imageUrl,description}:IMovie) {
+export default function MovieCard({Title,Year,Poster,Description}:IMovieSearch) {
   return (
     <Card sx={{ height:'100%' }}>
       <CardMedia
         sx={{ height: 640 }}
         // image={cinema1}
-        image={imageUrl}
+        image={Poster}
         title="green iguana"
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {title}
+          {Title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Year:{year}
+          Year:{Year}
         </Typography>
       </CardContent>
       <CardActions>

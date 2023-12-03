@@ -43,12 +43,13 @@ export default function AddMovie() {
     title : title,
     year : year,
     imageUrl : imageUrl,
-    description : description
+    description : description,
+    poster : ""
   }
   console.log(movie);
 
 
-   fetch(api+'/create', {
+   fetch(api+'/create', {  
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
