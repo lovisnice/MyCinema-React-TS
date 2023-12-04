@@ -1,6 +1,6 @@
 import { Box, TextField, Button } from "@mui/material";
 import { useForm } from "react-hook-form";
-import { ILoginDto } from "../../models/login-user";
+import { ILoginDto } from "../../models/user";
 
 
 const Login = () => {
